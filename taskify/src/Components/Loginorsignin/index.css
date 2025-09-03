@@ -1,0 +1,229 @@
+.loginorsignin-container{
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+}
+.error-message{
+  color: red;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+.loginorsignin-content{
+    min-height: 600px;
+    gap: 20px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #DDDDDD;
+    position: relative;
+    border-radius: 8px;
+}
+.top-buttons{
+    width: 100%;
+
+ display: grid;
+  grid-template-columns: 1fr 1fr; 
+  position: absolute;
+  top: 10px;
+  gap: 20px;
+ }
+.signin-content-button {
+    border: 0px solid #DDDDDD;
+    color: black;
+    font-weight: 600;
+    font-size: larger;
+    background-color: #DDDDDD;
+}
+
+.login-content-button{
+    border: 0px solid #DDDDDD;
+    color: black;
+    font-weight: 600;
+    font-size: larger;
+    background-color: #DDDDDD;
+}
+.top-buttons button,
+.signin-submit-button,
+.login-submit-button {
+  outline: none;         
+  border: none;        
+}
+
+.top-buttons button:focus,
+.signin-submit-button:focus,
+.login-submit-button:focus {
+  outline: none;      
+  box-shadow: none;   
+}
+
+.company-loginlogo{
+    height: 40px;
+    width: auto;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+}
+
+
+
+.loginorsignin-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #FAFAFA;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  padding: 20px;
+}
+
+.loginorsignin-content {
+  background: #FFFFFF;
+  padding-top: 60px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+  width: 400px;
+  min-height: 600px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-buttons {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #ECECEC;
+}
+
+.top-buttons button {
+  flex: 1;
+  background: none;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px 0;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.top-buttons button:hover {
+  color: #333;
+}
+
+.top-buttons .active {
+  color: skyblue;
+  border-bottom: 3px solid #ECECEC;
+}
+
+/* Forms */
+.signin-form,
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 50px;
+}
+
+/* Labels */
+.signin-form label,
+.login-form label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #444;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Inputs */
+.signin-input,
+.login-input {
+  padding: 12px;
+  font-size: 15px;
+  border: 1px solid #E0E0E0;
+  background: #FAFAFA;
+  border-radius: 8px;
+  outline: none;
+  color: #333;
+  font-size: large;
+
+  transition: border 0.3s ease, background 0.3s ease;
+}
+
+.signin-input:focus,
+.login-input:focus {
+  border-color: #CCCCCC;
+  background: #FFFFFF;
+}
+
+
+.signin-submit-button,
+.login-submit-button {
+  padding: 14px;
+  background: #E6E6E6;
+  color: #333;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.signin-submit-button:hover,
+.login-submit-button:hover {
+  background: #D9D9D9;
+}
+
+.signin-submit-button:focus,
+.login-submit-button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.signin-note {
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-form{
+  position: relative;
+  top: -40px;
+}
+.signin-note span {
+  color: #333;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+.signin-note span:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .loginorsignin-content {
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  .top-buttons button {
+    font-size: 16px;
+  }
+
+  .signin-submit-button,
+  .login-submit-button {
+    font-size: 14px;
+    padding: 12px;
+  }
+}
