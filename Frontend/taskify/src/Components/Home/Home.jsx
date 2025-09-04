@@ -37,7 +37,7 @@ useEffect(() => {
       const token = Cookies.get("jwtToken");
       console.log("JWT Token:", token);
 
-const response = await fetch("http://localhost:3000/api/tasks/gettasks", {
+const response = await fetch("https://taskify-1-prqj.onrender.com/api/tasks/gettasks", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -147,7 +147,7 @@ const validatemodaltitle = () =>{
 }
 const deletingtasks =async (id) => {
   console.log("deleing")
-  const apiUrl = `http://localhost:3000/api/tasks/deletetask/${id}`;
+  const apiUrl = `https://taskify-1-prqj.onrender.com/api/tasks/deletetask/${id}`;
   try {
     const option = {
       method: "DELETE",
@@ -189,7 +189,7 @@ const onchangemodalstatus = (e) =>{
 }
 const handleAddtasks = async(e)=>{
    e.preventDefault();  
- const apiUrl = "http://localhost:3000/api/tasks/addtask";
+ const apiUrl = "https://taskify-1-prqj.onrender.com/api/tasks/addtask";
  console.log(
   "started handling add task"
  );
@@ -259,7 +259,7 @@ const fetchUpdateUsertasks = async (e) => {
   e.preventDefault();
     
 
-  const apiUrl = `http://localhost:3000/api/tasks/updatetask/${taskId}`;
+  const apiUrl = `https://taskify-1-prqj.onrender.com/api/tasks/updatetask/${taskId}`;
   const updatedTask = {
     title: updatemodaltitle,
     description: updatemodaldes,

@@ -93,7 +93,7 @@ const handleSignIn = (e) =>{
                 confirmPassword
             };
             console.log("User data:", userData);
-            const apiUrl = "http://localhost:3000/api/Auth/usersignin"; 
+            const apiUrl = "https://taskify-1-prqj.onrender.com/api/Auth/usersignin"; 
             const options = {
                 method: "POST",
                 headers: {
@@ -152,7 +152,7 @@ const handleLogin = (e) =>{
          email: loginEmail,
          password: loginPassword
      };
-     const apiUrl = "http://localhost:3000/api/Auth/userlogin";
+     const apiUrl = "https://taskify-1-prqj.onrender.com/api/Auth/userlogin";
      const options = {
          method: "POST",
          headers: {

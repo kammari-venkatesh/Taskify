@@ -16,7 +16,7 @@ const Dashboard = () => {
     const getTasks = async () => {
       try {
         const token = Cookies.get("jwtToken");
-        const response = await fetch("http://localhost:3000/api/tasks/gettasks", {
+        const response = await fetch("https://taskify-1-prqj.onrender.com/api/tasks/gettasks", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

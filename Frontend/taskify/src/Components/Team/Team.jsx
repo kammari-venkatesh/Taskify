@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Teamtaskcard from '../Teamtaskcard/Teamtaskcard';
 import io from "socket.io-client";
 import Cookie from "js-cookie";
-const socket = io("http://localhost:3000");
+const socket = io("https://taskify-1-prqj.onrender.com");
 
 const professionalImages = [
   "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop",
@@ -37,7 +37,7 @@ const Team = () => {
 
   
   useEffect(() => {
-    fetch("http://localhost:3000/api/tasks/getteamtasks", {
+    fetch("https://taskify-1-prqj.onrender.com/api/tasks/getteamtasks", {
       headers: {
         Authorization: `Bearer ${Cookie.get("jwtToken")}`
       }
