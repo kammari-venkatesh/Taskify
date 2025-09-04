@@ -1,14 +1,19 @@
-const dotenv =require("dotenv")
+const dotenv = require("dotenv");
 dotenv.config();
 
- const mongoose =  require("mongoose");
-const {PORT , DB_USERNAME , DB_PASSWORD} =process.env
+const mongoose = require("mongoose");
 
-const DB_URL = `mongodb+srv://${DB_USERNAME}:${DB_PASSWORD}@cluster0.mqh7sqq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
-function connectDB() {
-  mongoose.connect(DB_URL).then(function(connection){
-
-  }).catch(err => console.log(err))
+async function connectDB() {
+  try {
+    await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log("✅ MongoDB connected successfully");
+  } catch (err) {
+    console.error("❌ MongoDB connection error:", err);
+    process.exit(1);
+  }
 }
 
 module.exports = connectDB;
