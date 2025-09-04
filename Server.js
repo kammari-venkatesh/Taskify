@@ -7,10 +7,8 @@ const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
 const userauthrouter = require("./routes/Userauthrouter");
 const usertasksrouter = require("./routes/Usertasksrouter");
-// ...existing code...
-// ...existing code...
-const { setSocketInstance } = require("./controllers/Usertaskscontrollers"); // <-- FIXED
-// ...existing code...
+
+const { setSocketInstance } = require("./controllers/Usertaskscontrollers"); 
 dotenv.config();
 connectDB();
 
@@ -38,9 +36,9 @@ app.use(express.json());
 app.use("/api/Auth", userauthrouter);
 app.use("/api/tasks", usertasksrouter);
 
-const { PORT } = process.env;
+const  PORT  = process.env.PORT || 3000;
 
-// ✅ Socket events
+
 io.on("connection", (socket) => {
     console.log("User connected:", socket.id);
 
