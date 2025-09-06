@@ -112,16 +112,26 @@ const UpdateUsertasks = async (req, res) => {
         res.status(400).json({ message: "Error updating task", error: err });
     }
 };
-const  DeleteUsertasks = function (req, res) {
+const DeleteUsertasks = async (req, res) => {
     const { id } = req.params;
-    UsertasksModel.findByIdAndDelete(id)
-        .then(() => {
-            res.status(200).json({ message: "Task deleted successfully" });
-        })
-        .catch((err) => {
-            res.status(400).json({ message: "Error deleting task", error: err });
-        });
+
+    try {
+        const task = await UsertasksModel.findByIdAndDelete(id);
+
+        if (!task) {
+            return res.status(404).json({ message: "Task not found" });
+        }
+
+        if (ioInstance) {
+            ioInstance.emit("taskUpdate", { action: "delete", task });
+        }
+
+        res.status(200).json({ message: "Task deleted successfully" });
+    } catch (err) {
+        res.status(400).json({ message: "Error deleting task", error: err });
+    }
 };
+
 
 module.exports = {
     setSocketInstance,

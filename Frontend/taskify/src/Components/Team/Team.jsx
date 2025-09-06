@@ -51,15 +51,24 @@ const Team = () => {
       .catch(err => console.error("Error fetching team tasks:", err));
   }, []);
 
-  useEffect(() => {
-    socket.on("tasksUpdated", (update) => {
-      if (update.action === "create") {
-        setTasks(prevTasks => [...prevTasks, update.task]);
-      }
-    });
+ useEffect(() => {
+  const handleTaskUpdate = (update) => {
+    if (update.action === "create") {
+      setTasks(prev => [...prev, update.task]);
+    } else if (update.action === "update") {
+      setTasks(prev => prev.map(t => t._id === update.task._id ? update.task : t));
+    } else if (update.action === "delete") {
+      setTasks(prev => prev.filter(t => t._id !== update.task._id));
+    }
+  };
 
-    return () => socket.off("tasksUpdated");
-  }, []);
+  socket.on("tasksUpdated", handleTaskUpdate);
+
+  return () => {
+    socket.off("tasksUpdated", handleTaskUpdate);
+  };
+}, []);
+
 
   const onclickTeamsearch = (event) => setTeamsearchvar(event.target.value);
   const handleteamPriorityFilterChange = (event) => setTeamPriorityFilter(event.target.value);
