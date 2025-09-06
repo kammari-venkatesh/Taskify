@@ -16,7 +16,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: "https://taskify-zq2i.vercel.app", 
+        origin: "https://taskify-zq2i-kc4df5ejv-venkateshs-projects-89f30aab.vercel.app", 
         methods: ["GET", "POST"]
     }
 });
@@ -26,7 +26,7 @@ setSocketInstance(io);
 
 
 app.use(cors({
-    origin: "https://taskify-zq2i.vercel.app",
+    origin: "https://taskify-zq2i-kc4df5ejv-venkateshs-projects-89f30aab.vercel.app",
     credentials: true
 }));
 app.use(cookieParser());
