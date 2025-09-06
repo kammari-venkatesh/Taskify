@@ -17,7 +17,8 @@ const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
         origin: "https://taskify-zq2i.vercel.app", 
-        methods: ["GET", "POST"]
+        methods: ["GET", "POST","PUT", "DELETE"],
+        credentials: true
     }
 });
 
